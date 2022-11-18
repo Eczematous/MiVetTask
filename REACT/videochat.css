@@ -1,0 +1,441 @@
+
+ /* Video Chat Main */
+ .p-centering {
+    font-size: 16px;
+    margin: 16px;
+    text-align: center;
+  }
+  
+  .h1-font {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    color: #b3b5b9;
+  }
+  
+  .p-small {
+    color: #727272;
+    font-size: 12px;
+  }
+  
+  .button-main {
+    background-color: #754ffe;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 12px;
+  }
+  
+  .video-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .api-error {
+    background: #2b3f56;
+    width: 480px;
+    height: 270px;
+    display: inline-flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    padding: 3rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+  
+  .api-error p {
+    color: #ffffff;
+  }
+  
+  .api-error h1 {
+    color: #f63135;
+  }
+  
+  .api-error a,
+  .api-error a:visited {
+    color: #ffffff;
+  }
+  
+  .button-template {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  }
+
+  .username {
+    position: absolute;
+    z-index: 2;
+    color: rgb(0, 0, 0);
+    background-color: gray;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    padding: 0.2em 0.5em;
+  }
+
+  /* Video Tray */
+  .tray {
+    width: 100%;
+    background: #ffffff;
+    color: #121a24;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .tray-buttons-container {
+    padding: 10px;
+    display: flex;
+    
+  }
+  
+  .tray-buttons-container button {
+    padding: 0;
+    background-color: #754ffe;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: normal;
+  }
+  
+  .tray-buttons-container button svg {
+    color: white;
+  }
+  
+  .tray-buttons-container button + button {
+    margin-left: 2rem;
+  }
+  
+  .controls,
+  .actions,
+  .leave {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+  
+  .controls {
+    justify-content: flex-start;
+  }
+  
+  .actions {
+    justify-content: center;
+  }
+  
+  .leave {
+    justify-content: flex-end;
+  }
+
+  /* Video Chat Tile */
+  .tile-video {
+    position: relative;
+    width: 480px;
+    height: 270px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .tile-video {
+      width: 240px;
+      height: 135px;
+    }
+  }
+  
+  .self-view {
+    width: 480px;
+    height: 270px;
+    position: relative;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .self-view {
+      width: 240px;
+      height: 135px;
+    }
+  }
+  
+  .self-view.alone {
+    width: 480px;
+    height: 270px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .self-view.alone {
+      width: 240px;
+      height: 135px;
+    }
+  }
+  
+  .self-view video {
+    transform: rotate3d(0, 1, 0, 180deg);
+    position: relative;
+  }
+  
+  .tile-screenshare {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  /* Video Chat Message */
+  .chat {
+    background: #ffffff;
+    position: absolute;
+    top: 4rem;
+    bottom: 4rem;
+    right: 0;
+    overflow-y: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 1px solid #c8d1dc;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .chat {
+      width: 100%;
+      z-index: 3; /* overlay the usernames in the Call screen*/
+    }
+  }
+  
+  .add-message {
+    padding: 1rem;
+    border-top: 1px solid #c8d1dc;
+    border-bottom: 1px solid #c8d1dc;
+  }
+  
+  .chat-messages {
+    padding: 1rem;
+    margin: 0;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .chat-message {
+    list-style-type: none;
+    margin-bottom: 1rem;
+  }
+  
+  .chat-message-author {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .chat-message-body {
+    text-align: left;
+    margin: 0;
+    display: inline;
+    color: #6b7785;
+    font-size: 14px;
+  }
+  
+  .chat-form {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #c8d1dc;
+  }
+  
+  .chat-input {
+    background: transparent;
+    border: 0;
+    flex-grow: 1;
+    padding: 0.5rem;
+  }
+  
+  .chat-submit-button {
+    background: transparent;
+  }
+  
+  .close-chat {
+    background: #754ffe;
+    border: 1px solid #c8d1dc;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    align-self: end;
+    font-weight: normal;
+  }
+  
+  .close-chat:hover {
+    background: #c8d1dc;
+    border: 1px solid #2b3f56;
+  }
+
+  /* Video Chat Error */
+
+  .get-user-media-error {
+    grid-column: 1 / 3;
+    align-items: center;
+  }
+  
+  .get-user-media-error h1 {
+    color: #f63135;
+  }
+  
+  .get-user-media-error button {
+    margin: 1rem 0 1rem 0;
+    background: black;
+    color: #ffffff;
+  }
+  
+  .get-user-media-error a,
+  .get-user-media-error a:visited {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .get-user-media-error p {
+    margin: 0;
+  }
+  /* Video Chat Checker */
+  .hair-check {
+    background: white;
+    border: 1px solid grey;
+    padding: 1rem;
+    border-radius: 4px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+  }
+  
+  .hair-check video {
+    transform: rotate3d(0, 1, 0, 180deg);
+    max-width: 480px;
+  }
+  
+  .hair-check label {
+    display: block;
+    color: #6b7785;
+    font-size: 12px;
+    margin: 1em 0 0.5em 0;
+    line-height: 14px;
+  }
+  
+  .hair-check input,
+  .hair-check select {
+    border: 1px solid #c8d1dc;
+    padding: 0.5em;
+    border-radius: 4px;
+    color: #1f2d3d;
+    width: 100%;
+  }
+  
+  .hair-check h1 {
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+    color: #1f2d3d;
+  }
+  
+  .hair-check button {
+    margin-top: 2em;
+  }
+  
+  .hair-check button + button {
+    margin-top: 0;
+  }
+  
+  .cancel-call {
+    background: rgb(230, 224, 224);
+    color:black
+  }
+  /* Video Chat Call */
+  .call {
+    display: grid;
+    padding: 5rem;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    grid-auto-rows: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    width: 100%;
+    position: relative;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .call {
+      padding: 0;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-auto-rows: unset;
+    }
+  }
+  
+  .is-screenshare {
+    display: grid;
+    padding: 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-row-gap: 15px;
+  }
+  
+ 
+  .is-screenshare .self-view {
+    width: 240px;
+    height: 135px;
+  }
+  
+  
+  .is-screenshare .tile-video {
+    width: 240px;
+    height: 135px;
+  }
+  
+  .info-box {
+    background: #18113c;
+    color: #ffffff;
+    width: 480px;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .info-box {
+      width: 240px;
+      height: auto;
+      padding: 2rem 1rem;
+    }
+  }
+  
+  .room-url {
+    padding: 0 1rem;
+    word-break: break-word;
+    font-weight: normal;
+    font-size: 12px;
+  }
+
+  /* Video Chat Room */
+  
+  .lightheader-room{
+    background-color: #efedf5;
+  }
+  
+  /* VideoChatChartMeetings */
+
+  .chart-line-meetings{
+    color: #754ffe;
+    border-top: 3px solid;
+    
+  }
+  .chart-line-minutes{
+    color: #19cb98;
+    border-top: 3px dashed;
+  }
+  
+  
+  
+  
+  
+
+  
